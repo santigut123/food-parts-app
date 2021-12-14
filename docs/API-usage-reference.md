@@ -58,13 +58,13 @@ Response body:
             "rda": 30.5,
          }
       ],
-      suggestedPortions": [
+      "suggestedPortions": [
          {
             "conversion": 2,
             "name": "one serving",
          },
          {
-            "conversion": .5,
+            "conversion": 0.5,
             "name": "two oz",
          }
       ]
@@ -186,7 +186,7 @@ Response body:
       { "name": "polyunsaturated", "nutrientType": "fat", "rda": 150, "amount": 30, "unit": "g" },
    ],
    "macroPreferences": [
-      { "nutrientType": "fat", "rda": 200, "amount": 30, "unit": "g", "caloriePercentage": .33 },
+      { "nutrientType": "fat", "rda": 200, "amount": 30, "unit": "g", "caloriePercentage": 0.33 },
    ],
 }
 ```
