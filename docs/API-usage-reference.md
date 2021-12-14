@@ -27,10 +27,7 @@ Response body:
 ## RESULTS OF NUTRIENT API CALL
 Returns the nutrients of a searched up food.
 
-#### **GET** request on `URL/user/:userid/foods?foodid=:foodid`:
-Response body is the same as using `name=:name` except that this only returns ONE object (using `name=:name` does a fuzzy search and returns an array of objects).
-
-#### **GET** request on `URL/user/:userId/foods?name=bee`:
+#### **GET** request on `URL/user/:userId/foods?foodName=bee`:
 Does a fuzzy search.
 
 Response body:
@@ -76,6 +73,9 @@ Response body:
 ]
 ```
 
+#### **GET** request on `URL/user/:userId/foods?foodId=:foodId`:
+Response body is the same as using `foodName=:foodName` except that this only returns ONE object (using `foodName=:foodName` does a fuzzy search and returns an array of objects).
+
 
 
 --------------------------------------------------------------------------------
@@ -87,26 +87,31 @@ This returns a specific recipe that the user searches for.
 TODO
 - Eventually be able to add recipes.
 
-#### **GET** request on `URL/user/:userId/recipes/beef stew`:
+#### **GET** request on `URL/user/:userId/recipes?foodName=beef stew`:
 Response body:
 ```json
-{
-   "name": "beef stew",
-   "description": "Lorem ipsum",
-   "recipe": true,
-   "foods": [
-      {
-         "foodName": "beef",
-         "grams": 30
-      },
-      {
-         "foodName": "apple",
-         "grams": 10
-      }
-   ],
-   /* Also include all the stuff from nutrient call. */
-}
+[
+   {
+      "name": "beef stew",
+      "description": "Lorem ipsum",
+      "recipe": true,
+      "foods": [
+         {
+            "foodName": "beef",
+            "grams": 30
+         },
+         {
+            "foodName": "apple",
+            "grams": 10
+         }
+      ],
+      /* Also include all the stuff from nutrient call. */
+   }
+]
 ```
+
+#### **GET** request on `URL/user/:userId/recipes?foodId=:foodId`:
+Response body is the same as using `foodName=:foodName` except that this only returns ONE object (using `foodName=:foodName` does a fuzzy search and returns an array of objects).
 
 
 
