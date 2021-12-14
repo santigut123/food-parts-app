@@ -27,14 +27,14 @@ Response body:
 ## RESULTS OF NUTRIENT API CALL
 Returns the nutrients of a searched up food.
 
-#### **GET** request on `URL/user/:userId/foods?foodName=bee`:
+#### **GET** request on `URL/user/:userId/foods?name=bee`:
 Does a fuzzy search.
 
 Response body:
 ```json
 [
    {
-      "foodName": "beef stew",
+      "name": "beef stew",
       "foodId": 23423234,
       "description": "Lorem ipsum",
       "recipe": true,
@@ -67,14 +67,14 @@ Response body:
       ]
    },
    {
-      "foodName": "beet",
+      "name": "beet",
       ...
    }
 ]
 ```
 
 #### **GET** request on `URL/user/:userId/foods?foodId=:foodId`:
-Response body is the same as using `foodName=:foodName` except that this only returns ONE object (using `foodName=:foodName` does a fuzzy search and returns an array of objects).
+Response body is the same as using `name=:name` except that this only returns ONE object (using `name=:name` does a fuzzy search and returns an array of objects).
 
 
 
@@ -87,7 +87,7 @@ This returns a specific recipe that the user searches for.
 TODO
 - Eventually be able to add recipes.
 
-#### **GET** request on `URL/user/:userId/recipes?foodName=beef stew`:
+#### **GET** request on `URL/user/:userId/recipes?name=beef stew`:
 Response body:
 ```json
 [
@@ -97,11 +97,11 @@ Response body:
       "recipe": true,
       "foods": [
          {
-            "foodName": "beef",
+            "name": "beef",
             "grams": 30
          },
          {
-            "foodName": "apple",
+            "name": "apple",
             "grams": 10
          }
       ],
@@ -111,7 +111,7 @@ Response body:
 ```
 
 #### **GET** request on `URL/user/:userId/recipes?foodId=:foodId`:
-Response body is the same as using `foodName=:foodName` except that this only returns ONE object (using `foodName=:foodName` does a fuzzy search and returns an array of objects).
+Response body is the same as using `name=:name` except that this only returns ONE object (using `name=:name` does a fuzzy search and returns an array of objects).
 
 
 
@@ -126,7 +126,7 @@ These are for the food-tracking functionality, where a user can keep track of th
 Request body:
 ```json
 {
-   "foodName": "beef stew",
+   "name": "beef stew",
    "foodId": 23423234,
    "description": "Lorem ipsum",
    "gramsEaten": 10,
@@ -146,7 +146,7 @@ Response body:
 ```json
 [
    {
-      "foodName": "beef stew",
+      "name": "beef stew",
       "foodId": 23423234,
       "description": "Lorem ipsum",
       "gramsEaten": 10,
