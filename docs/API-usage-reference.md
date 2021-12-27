@@ -24,7 +24,7 @@ Response body:
 
 --------------------------------------------------------------------------------
 
-## RESULTS OF NUTRIENT API CALL
+## RESULTS OF FOOD/NUTRIENT API CALL
 Returns the nutrients of a searched up food.
 
 #### **GET** request on `URL/user/:userId/foods?name=bee`:
@@ -41,14 +41,14 @@ Response body:
       "calories": 420,
       "nutrients": [
          {
-            "vitamiName": "vitamin a",
+            "nutrientName": "vitamin a",
             "nutrientType": "vitamin",
             "amount": 20,
             "unit": "mg",
-            "rda": 30.5,
+            "amt": 30.5,
          },
          {
-            "vitaminName": "polyunsaturated",
+            "nutrientName": "polyunsaturated",
             "nutrientType": "fat",
             "amount": 20,
             "unit": "mg",
@@ -68,13 +68,79 @@ Response body:
    },
    {
       "foodName": "beet",
-      ...
+      "foodId": 123412341234,
+      "description": "Dolorem ipsium",
+      "recipe": false,
+      "calories": 420,
+      "nutrients": [
+         {
+            "nutrientName": "vitamin a",
+            "nutrientType": "vitamin",
+            "amount": 20,
+            "unit": "mg",
+            "amt": 30.5,
+         },
+         {
+            "nutrientName": "polyunsaturated",
+            "nutrientType": "fat",
+            "amount": 20,
+            "unit": "mg",
+            "rda": 30.5,
+         }
+      ],
+      "suggestedPortions": [
+         {
+            "conversion": 2,
+            "suggestedPortionName": "one serving",
+         },
+         {
+            "conversion": 0.5,
+            "suggestedPortionName": "two oz",
+         }
+      ]
    }
 ]
 ```
 
 #### **GET** request on `URL/user/:userId/foods?foodId=:foodId`:
 Response body is the same as using `name=:name` except that this only returns ONE object (using `name=:name` does a fuzzy search and returns an array of objects).
+
+Response body:
+```json
+{
+   "foodName": "beet",
+   "foodId": 123412341234,
+   "description": "Dolorem ipsium",
+   "recipe": false,
+   "calories": 420,
+   "nutrients": [
+      {
+         "nutrientName": "vitamin a",
+         "nutrientType": "vitamin",
+         "amount": 20,
+         "unit": "mg",
+         "amt": 30.5,
+      },
+      {
+         "nutrientName": "polyunsaturated",
+         "nutrientType": "fat",
+         "amount": 20,
+         "unit": "mg",
+         "rda": 30.5,
+      }
+   ],
+   "suggestedPortions": [
+      {
+         "conversion": 2,
+         "suggestedPortionName": "one serving",
+      },
+      {
+         "conversion": 0.5,
+         "suggestedPortionName": "two oz",
+      }
+   ]
+}
+```
 
 
 
@@ -97,11 +163,13 @@ Response body:
       "recipe": true,
       "foods": [
          {
-            "name": "beef",
+            "foodName": "beef",
+            "foodId": 123412341234,
             "grams": 30
          },
          {
-            "name": "apple",
+            "foodName": "apple",
+            "foodId": 123412341234,
             "grams": 10
          }
       ],
@@ -187,8 +255,8 @@ Response body:
    "sex": "m",
    "weight": 201,
    "rdaPreferences": [
-      { "name": "vitamin a", "nutrientType": "vitamin", "rda": 200, "amount": 20, "unit": "mg" },
-      { "name": "polyunsaturated", "nutrientType": "fat", "rda": 150, "amount": 30, "unit": "g" },
+      { "nutrientName": "vitamin a", "nutrientType": "vitamin", "rda": 200, "amount": 20, "unit": "mg" },
+      { "nutrientName": "polyunsaturated", "nutrientType": "fat", "rda": 150, "amount": 30, "unit": "g" },
    ],
    "macroPreferences": [
       { "nutrientType": "fat", "rda": 200, "amount": 30, "unit": "g", "caloriePercentage": 0.33 },
