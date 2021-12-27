@@ -14,8 +14,8 @@ This returns the reference for a 2000 calorie diet (the thing on the back of a l
 Response body:
 ```json
 [
-   { "name": "vitamin a", "nutrientType": "vitamin", "amount": 10, "unit": "mg" },
-   { "name": "polyunsaturated", "nutrientType": "fat", "amount": 20, "unit": "g" },
+   { "vitaminName": "vitamin a", "nutrientType": "vitamin", "amount": 10, "unit": "mg" },
+   { "vitaminName": "polyunsaturated", "nutrientType": "fat", "amount": 20, "unit": "g" },
    ...
 ]
 ```
@@ -34,21 +34,21 @@ Response body:
 ```json
 [
    {
-      "name": "beef stew",
+      "foodName": "beef stew",
       "foodId": 23423234,
       "description": "Lorem ipsum",
       "recipe": true,
       "calories": 420,
       "nutrients": [
          {
-            "name": "vitamin a",
+            "vitamiName": "vitamin a",
             "nutrientType": "vitamin",
             "amount": 20,
             "unit": "mg",
             "rda": 30.5,
          },
          {
-            "name": "polyunsaturated",
+            "vitaminName": "polyunsaturated",
             "nutrientType": "fat",
             "amount": 20,
             "unit": "mg",
@@ -58,16 +58,16 @@ Response body:
       "suggestedPortions": [
          {
             "conversion": 2,
-            "name": "one serving",
+            "suggestedPortionName": "one serving",
          },
          {
             "conversion": 0.5,
-            "name": "two oz",
+            "suggestedPortionName": "two oz",
          }
       ]
    },
    {
-      "name": "beet",
+      "foodName": "beet",
       ...
    }
 ]
@@ -92,7 +92,7 @@ Response body:
 ```json
 [
    {
-      "name": "beef stew",
+      "foodName": "beef stew",
       "description": "Lorem ipsum",
       "recipe": true,
       "foods": [
@@ -126,7 +126,7 @@ These are for the food-tracking functionality, where a user can keep track of th
 Request body:
 ```json
 {
-   "name": "beef stew",
+   "foodName": "beef stew",
    "foodId": 23423234,
    "description": "Lorem ipsum",
    "gramsEaten": 10,
@@ -146,7 +146,7 @@ Response body:
 ```json
 [
    {
-      "name": "beef stew",
+      "foodName": "beef stew",
       "foodId": 23423234,
       "description": "Lorem ipsum",
       "gramsEaten": 10,
@@ -182,7 +182,7 @@ Response body:
 Response body:
 ```json
 {
-   "name": "Bob",
+   "accountName": "Bob",
    "age": 37,
    "sex": "m",
    "weight": 201,
